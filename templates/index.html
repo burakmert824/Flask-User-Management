@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+{% block head %}
+<title>Home Page</title>
+{% endblock%}
+    
+{% block body %}
+<h1> Nokia Users </h1>
+    <img src = "https://w7.pngwing.com/pngs/634/770/png-transparent-nokia-6-nokia-5-nokia-phone-series-nokia-3210-smartphone-electronics-text-hand.png" 
+    alt "Nokia"
+    style = "height:200px;">
+    <br>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Created Date</th>
+            <th>Updated Date</th>
+            <th>Actions</th>
+        </tr>
+        <br>
+        {% for user in users %}
+        <tr>
+            <th>{{user.id}}</th>
+            <th>{{user.name}}</th>
+            <th>{{user.date_created}}</th>
+            <th>{{user.date_updated}}</th>
+            <th>
+                <a href = "/update/{{user.id}}">Update</a>
+                <br>
+                <a href = "/delete/{{user.id}}">Delete</a>
+            </th>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action = "/add" method = "POST">
+        <input type = "text" id = "uname" name = "uname">
+        <input type = "submit", value = "Add User">
+    </form>
+{% endblock %}

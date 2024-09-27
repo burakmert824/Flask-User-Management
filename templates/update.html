@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+{% block head %}
+<title>Update Page</title>
+{% endblock%}
+    
+{% block body %}
+<h1> Update Nokia Users </h1>
+    <img src = "https://c8.alamy.com/comp/HR2MGA/nokia-3310-mobile-phone-one-of-nokias-most-popular-phones-HR2MGA.jpg" 
+    alt "Nokia"
+    style = "width:100 px; height:200px;">
+    <br>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Created Date</th>
+            <th>Updated Date</th>
+        </tr>
+        <br>
+        <tr>
+            <th>{{user.id}}</th>
+            <th>{{user.name}}</th>
+            <th>{{user.date_created}}</th>
+            <th>{{user.date_updated}}</th>
+        </tr>
+    </table>
+    <form action = "/update/{{user.id}}" method = "POST">
+        <input type = "text" id = "uname" name = "uname">
+        <input type = "submit", value = "Update Name">
+    </form>
+{% endblock %}
